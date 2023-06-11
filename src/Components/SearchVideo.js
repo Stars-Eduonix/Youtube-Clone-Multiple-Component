@@ -18,7 +18,7 @@ const SearchVideo = ({addVideo, addSelectedVideo}) => {
               part: "snippet",
               maxResults: 5,
               type: "video",
-              key: "AIzaSyDM4FrBGk1qwXox2zQdYyoFPn2soWviVWY"
+              key: process.env.REACT_APP_YOUTUBE_KEY
           }
      })
         .then(res => {
