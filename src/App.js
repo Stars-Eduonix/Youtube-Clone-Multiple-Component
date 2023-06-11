@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useState} from 'react';
+import SearchVideo from './Components/SearchVideo';
+import VideoList from './Components/VideoList';
+import VideoPlay from './Components/VideoPlay';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+const App = () =>{
+    const [videos, setVideos] = useState([]);
+    const [selectedVideo, setSelectedVideo] = useState(null);
+
+
+    return(
+        <div>
+               <SearchVideo  addVideo={setVideos} addSelectedVideo={setSelectedVideo}/> 
+              <div className="video">
+                    <VideoPlay selectedVideo={selectedVideo}/> 
+                    <VideoList videos={videos}  addSelectedVideo={setSelectedVideo}/>
+              </div>
+              
+              
+        </div>
+    )
 }
 
 export default App;
